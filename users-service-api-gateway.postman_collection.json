@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "77302a60-15b1-4971-9697-920f9b0e4efc",
+		"name": "users-service-api-gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17284909"
+	},
+	"item": [
+		{
+			"name": "users-list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}:8000/users",
+					"host": [
+						"{{url}}"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "users-list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}:8000/users",
+							"host": [
+								"{{url}}"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.24"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 08 Dec 2024 12:33:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": \"9daab9d9-ea99-4de5-b9e1-80dbb3ca8adf\",\n            \"name\": \"Ms. Georgianna D'Amore Sr.\",\n            \"email\": \"douglas.magdalena@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-ef7a-4b62-8ead-2ee41b76e5ff\",\n            \"name\": \"Nels Koelpin\",\n            \"email\": \"leannon.abbey@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-f1fc-4e66-a4ec-436c0a54011b\",\n            \"name\": \"Mr. Roderick Reynolds\",\n            \"email\": \"gulgowski.christop@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-f3f9-479f-b691-543db652f6cd\",\n            \"name\": \"Prof. Kirstin Williamson\",\n            \"email\": \"gleichner.mavis@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-f5a6-487c-b95b-d859deb76256\",\n            \"name\": \"Humberto Boyer MD\",\n            \"email\": \"waelchi.ignatius@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-f788-46e7-9da8-4923f91b661f\",\n            \"name\": \"Nils McLaughlin\",\n            \"email\": \"anastasia.weimann@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-f95c-4079-a018-4c6564498c6c\",\n            \"name\": \"Abagail Mitchell I\",\n            \"email\": \"cassie.jaskolski@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-fb52-44bb-9d33-2fbd2da3f966\",\n            \"name\": \"Jazmyne Schuster I\",\n            \"email\": \"dietrich.juvenal@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-fd50-4c95-a45a-f2b16bbe0250\",\n            \"name\": \"Mr. Americo Kutch\",\n            \"email\": \"dianna70@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9d9-fedf-4789-a6ae-859fbf802af7\",\n            \"name\": \"Brice Rath\",\n            \"email\": \"mclaughlin.eloise@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-00a8-4aee-81d6-6a034d310ce8\",\n            \"name\": \"Harold Harber\",\n            \"email\": \"wade53@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-0236-4031-97cb-b07ac2b9ba46\",\n            \"name\": \"Delbert Becker\",\n            \"email\": \"lucie30@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-0432-4c4b-946a-a3352ccc5724\",\n            \"name\": \"Dr. Lura Balistreri\",\n            \"email\": \"bmckenzie@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-05df-408a-bf24-6a54e9e5f6ba\",\n            \"name\": \"Geovany Schneider\",\n            \"email\": \"afay@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-075d-441a-83c0-567ee5def8ce\",\n            \"name\": \"Mrs. Clementine Douglas\",\n            \"email\": \"hansen.estel@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-08e7-47e8-9ab8-4d12a8e436d7\",\n            \"name\": \"Mr. Malachi Turner\",\n            \"email\": \"yoshiko80@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-0a39-46be-8a7e-6198ae9de10b\",\n            \"name\": \"Ines O'Reilly\",\n            \"email\": \"oreilly.jackson@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-0bd8-4452-b1bf-9f6fca3820ee\",\n            \"name\": \"Jamie Von\",\n            \"email\": \"tyrese54@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-0d1c-4942-9fd2-b04439087147\",\n            \"name\": \"Ubaldo Morar IV\",\n            \"email\": \"murphy.sammie@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-0e9f-4cf6-8c24-eee091bb29f9\",\n            \"name\": \"Friedrich Gulgowski\",\n            \"email\": \"sarai.ohara@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-0ff7-4d7f-ae37-218aaf43dc24\",\n            \"name\": \"Henderson Wehner\",\n            \"email\": \"robbie92@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-128c-47b5-a721-d505b99044ce\",\n            \"name\": \"Dr. Kendrick Hodkiewicz I\",\n            \"email\": \"milan41@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-1465-4afc-98c2-d269c567bc34\",\n            \"name\": \"Wilford Strosin\",\n            \"email\": \"alessia86@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-160a-45c6-837a-c52e7bda81f4\",\n            \"name\": \"Marion Davis\",\n            \"email\": \"price.hollis@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-1764-4222-9b15-ab890b427cee\",\n            \"name\": \"Clement Carter DDS\",\n            \"email\": \"charles31@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-19be-4ef6-8aac-dfd3f1020ee0\",\n            \"name\": \"Rosa Lowe I\",\n            \"email\": \"edonnelly@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-1b1f-42c6-a859-4972bbd7b416\",\n            \"name\": \"Mr. Favian Konopelski DVM\",\n            \"email\": \"isawayn@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-1ccd-445b-bc8a-d0b9fe8f5ec0\",\n            \"name\": \"Estella Stanton\",\n            \"email\": \"abernathy.lonzo@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-1e24-4c7d-8a82-9f87d7fd6298\",\n            \"name\": \"Dr. Van Thompson V\",\n            \"email\": \"camren82@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-1f56-4a68-b221-e69475647fd7\",\n            \"name\": \"Dr. Emil Feil DVM\",\n            \"email\": \"bradtke.chris@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2078-4bd1-a92a-81ddbd4f96ff\",\n            \"name\": \"Kennith Yundt\",\n            \"email\": \"victor.leffler@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-21c7-405b-ae0c-96dce3252de1\",\n            \"name\": \"Dr. Danial Hirthe\",\n            \"email\": \"mike88@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-22db-48d7-8f41-6d77129d6a3c\",\n            \"name\": \"Dr. Arnulfo Mohr\",\n            \"email\": \"jaskolski.jarrod@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2429-4e4a-932a-ec155329e550\",\n            \"name\": \"Lorna Windler\",\n            \"email\": \"rosinski@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-257f-4388-9aac-75ff9ac298e1\",\n            \"name\": \"Hilma Jenkins\",\n            \"email\": \"hayley97@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-26c4-494e-91f2-f14a50ddfe22\",\n            \"name\": \"Darien Koch\",\n            \"email\": \"danny.abernathy@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2851-48cb-8ff9-17d224e01f23\",\n            \"name\": \"Alberta Shanahan\",\n            \"email\": \"bergstrom.madie@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2993-4f15-a4e0-73498c501f6f\",\n            \"name\": \"Giovani Crist\",\n            \"email\": \"nwintheiser@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2aae-4f65-975f-cbfaecad1b9b\",\n            \"name\": \"Johnathon Tremblay\",\n            \"email\": \"stone18@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2bb5-4f56-8fdf-e2837cc1b1eb\",\n            \"name\": \"Tremaine Wolf\",\n            \"email\": \"elena.pacocha@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2cde-49e8-91e3-fc83a60f2677\",\n            \"name\": \"Mrs. Roma Gerlach\",\n            \"email\": \"kristopher.rutherford@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2dc1-4ee2-bdfe-26531b9c2dfc\",\n            \"name\": \"Dedrick Lakin\",\n            \"email\": \"drobel@example.net\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-2ef0-418f-841f-ce240276d378\",\n            \"name\": \"Buford Berge\",\n            \"email\": \"hilda.morissette@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-3039-4045-9b08-bdde45bf4621\",\n            \"name\": \"Dr. Monte Hodkiewicz III\",\n            \"email\": \"elian.pouros@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-3192-4cc0-9158-cf48fd3d30a0\",\n            \"name\": \"Alyson Moen\",\n            \"email\": \"kuhic.clair@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-32ce-48f2-939c-31f661542595\",\n            \"name\": \"Ressie Price\",\n            \"email\": \"eryn.stroman@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-33fe-4704-bb65-11e98e22e3ee\",\n            \"name\": \"Catharine Harvey DDS\",\n            \"email\": \"meredith36@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-353f-435f-98d7-a5f467d844f0\",\n            \"name\": \"Tristin Welch II\",\n            \"email\": \"robb47@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-365b-4ee9-bb86-7a95b78b101c\",\n            \"name\": \"Zoie Langosh\",\n            \"email\": \"kvonrueden@example.com\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        },\n        {\n            \"id\": \"9daab9da-3797-4ee5-8a6f-ea4ff17fcc0c\",\n            \"name\": \"Valentine Rath III\",\n            \"email\": \"elna.beier@example.org\",\n            \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n            \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "users-show",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}:8000/users/{{userId}}",
+					"host": [
+						"{{url}}"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "users-show",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}:8000/users/{{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.24"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 08 Dec 2024 12:33:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": \"9daab9d9-ea99-4de5-b9e1-80dbb3ca8adf\",\n        \"name\": \"Ms. Georgianna D'Amore Sr.\",\n        \"email\": \"douglas.magdalena@example.com\",\n        \"created_at\": \"2024-12-07T10:04:40.000000Z\",\n        \"updated_at\": \"2024-12-07T10:04:40.000000Z\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
