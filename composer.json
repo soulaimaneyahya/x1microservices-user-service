@@ -1,11 +1,13 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "x1microservices/user-service",
+    "description": "x1microservices/user-service",
+    "keywords": ["x1microservices/user-service"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": "^8.1",
+        "dusterio/lumen-passport": "^0.3.8",
+        "guzzlehttp/guzzle": "^6.3",
         "laravel/lumen-framework": "^10.0"
     },
     "require-dev": {
