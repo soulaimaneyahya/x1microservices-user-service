@@ -1,7 +1,10 @@
 {
     "name": "x1microservices/user-service",
     "description": "x1microservices/user-service",
-    "keywords": ["x1microservices/user-service"],
+    "keywords": [
+        "x1microservices",
+        "user-service"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
