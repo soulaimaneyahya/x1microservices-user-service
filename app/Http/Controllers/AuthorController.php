@@ -6,6 +6,7 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Services\AuthorService;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AuthorController extends Controller
 {
@@ -27,48 +28,28 @@ class AuthorController extends Controller
         $this->authorService = $authorService;
     }
 
-    /**
-     * Return the list of authors
-     * @return Illuminate\Http\Response
-     */
-    public function index()
+    public function index(): JsonResponse
     {
         return $this->successResponse($this->authorService->obtainAuthors());
     }
 
-    /**
-     * Create one new author
-     * @return Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         return $this->successResponse($this->authorService->createAuthor($request->all(), Response::HTTP_CREATED));
     }
 
-    /**
-     * Obtains and show one author
-     * @return Illuminate\Http\Response
-     */
-    public function show($author)
+    public function show($authorId): JsonResponse
     {
-        return $this->successResponse($this->authorService->obtainAuthor($author));
+        return $this->successResponse($this->authorService->obtainAuthor($authorId));
     }
 
-    /**
-     * Update an existing author
-     * @return Illuminate\Http\Response
-     */
-    public function update(Request $request, $author)
+    public function update(Request $request, $authorId): JsonResponse
     {
-        return $this->successResponse($this->authorService->editAuthor($request->all(), $author));
+        return $this->successResponse($this->authorService->editAuthor($request->all(), $authorId));
     }
 
-    /**
-     * Remove an existing author
-     * @return Illuminate\Http\Response
-     */
-    public function destroy($author)
+    public function destroy($authorId): JsonResponse
     {
-        return $this->successResponse($this->authorService->deleteAuthor($author));
+        return $this->successResponse($this->authorService->deleteAuthor($authorId));
     }
 }

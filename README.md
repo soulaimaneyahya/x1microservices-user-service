@@ -15,7 +15,7 @@ Running
 php -S localhost:8000 -t public
 ```
 
-
+Refresh Tokens
 ```sh
 php artisan db:seed --class=TruncateOAuthTablesSeeder
 ```

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Services\BookService;
 use Illuminate\Http\Response;
 use App\Services\AuthorService;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookController extends Controller
 {
@@ -35,50 +36,30 @@ class BookController extends Controller
         $this->authorService = $authorService;
     }
 
-    /**
-     * Return the list of books
-     * @return Illuminate\Http\Response
-     */
-    public function index()
+    public function index(): JsonResponse
     {
         return $this->successResponse($this->bookService->obtainBooks());
     }
 
-    /**
-     * Create one new book
-     * @return Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $this->authorService->obtainAuthor($request->author_id);
 
         return $this->successResponse($this->bookService->createBook($request->all(), Response::HTTP_CREATED));
     }
 
-    /**
-     * Obtains and show one book
-     * @return Illuminate\Http\Response
-     */
-    public function show($book)
+    public function show($bookId): JsonResponse
     {
-        return $this->successResponse($this->bookService->obtainBook($book));
+        return $this->successResponse($this->bookService->obtainBook($bookId));
     }
 
-    /**
-     * Update an existing book
-     * @return Illuminate\Http\Response
-     */
-    public function update(Request $request, $book)
+    public function update(Request $request, $bookId): JsonResponse
     {
-        return $this->successResponse($this->bookService->editBook($request->all(), $book));
+        return $this->successResponse($this->bookService->editBook($request->all(), $bookId));
     }
 
-    /**
-     * Remove an existing book
-     * @return Illuminate\Http\Response
-     */
-    public function destroy($book)
+    public function destroy($bookId): JsonResponse
     {
-        return $this->successResponse($this->bookService->deleteBook($book));
+        return $this->successResponse($this->bookService->deleteBook($bookId));
     }
 }

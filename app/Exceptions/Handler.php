@@ -94,11 +94,10 @@ class Handler extends ExceptionHandler
             return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        if (false && $exception instanceof ClientException) {
-            $message = $exception->getResponse()->getBody();
-            $code = $exception->getCode();
+        if ($exception instanceof ClientException) {
+            $responseBody = json_decode($exception->getResponse()->getBody(), true);
 
-            return $this->errorResponse($message, $code);
+            return $this->errorResponse($responseBody['error'] ?? 'An error occurred.', $exception->getCode());
         }
 
         if (env('APP_DEBUG', false) && env('APP_ENV', 'local') === 'local') {

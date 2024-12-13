@@ -26,48 +26,28 @@ class BookService
         $this->secret = config('services.books.secret');
     }
 
-    /**
-     * Obtain the full list of book from the book service
-     * @return string
-     */
-    public function obtainBooks()
+    public function obtainBooks(): string
     {
         return $this->performRequest('GET', '/books');
     }
 
-    /**
-     * Create one book using the book service
-     * @return string
-     */
-    public function createBook($data)
+    public function createBook($data): string
     {
         return $this->performRequest('POST', '/books', $data);
     }
 
-    /**
-     * Obtain one single book from the book service
-     * @return string
-     */
-    public function obtainBook($book)
+    public function obtainBook($bookId): string
     {
-        return $this->performRequest('GET', "/books/{$book}");
+        return $this->performRequest('GET', "/books/{$bookId}");
     }
 
-    /**
-     * Update an instance of book using the book service
-     * @return string
-     */
-    public function editBook($data, $book)
+    public function editBook($data, $bookId): string
     {
-        return $this->performRequest('PUT', "/books/{$book}", $data);
+        return $this->performRequest('PUT', "/books/{$bookId}", $data);
     }
 
-    /**
-     * Remove a single book using the book service
-     * @return string
-     */
-    public function deleteBook($book)
+    public function deleteBook($bookId): string
     {
-        return $this->performRequest('DELETE', "/books/{$book}");
+        return $this->performRequest('DELETE', "/books/{$bookId}");
     }
 }

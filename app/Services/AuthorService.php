@@ -26,48 +26,28 @@ class AuthorService
         $this->secret = config('services.authors.secret');
     }
 
-    /**
-     * Obtain the full list of author from the author service
-     * @return string
-     */
-    public function obtainAuthors()
+    public function obtainAuthors(): string
     {
         return $this->performRequest('GET', '/authors');
     }
 
-    /**
-     * Create one author using the author service
-     * @return string
-     */
-    public function createAuthor($data)
+    public function createAuthor($data): string
     {
         return $this->performRequest('POST', '/authors', $data);
     }
 
-    /**
-     * Obtain one single author from the author service
-     * @return string
-     */
-    public function obtainAuthor($author)
+    public function obtainAuthor($authorId): string
     {
-        return $this->performRequest('GET', "/authors/{$author}");
+        return $this->performRequest('GET', "/authors/{$authorId}");
     }
 
-    /**
-     * Update an instance of author using the author service
-     * @return string
-     */
-    public function editAuthor($data, $author)
+    public function editAuthor($data, $authorId): string
     {
-        return $this->performRequest('PUT', "/authors/{$author}", $data);
+        return $this->performRequest('PUT', "/authors/{$authorId}", $data);
     }
 
-    /**
-     * Remove a single author using the author service
-     * @return string
-     */
-    public function deleteAuthor($author)
+    public function deleteAuthor($authorId): string
     {
-        return $this->performRequest('DELETE', "/authors/{$author}");
+        return $this->performRequest('DELETE', "/authors/{$authorId}");
     }
 }

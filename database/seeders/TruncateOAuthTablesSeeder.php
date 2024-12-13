@@ -14,9 +14,10 @@ class TruncateOAuthTablesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('oauth_clients')->truncate();
         DB::table('oauth_access_tokens')->truncate();
-        DB::table('oauth_refresh_tokens')->truncate();
         DB::table('oauth_auth_codes')->truncate();
+        DB::table('oauth_clients')->truncate();
+        DB::table('oauth_personal_access_clients')->truncate();
+        DB::table('oauth_refresh_tokens')->truncate();
     }
 }
