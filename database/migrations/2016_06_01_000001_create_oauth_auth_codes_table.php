@@ -13,17 +13,19 @@ return new class() extends Migration
      */
     public function up()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->create('oauth_auth_codes', function (Blueprint $table) {
+        Schema::create('oauth_auth_codes', function (Blueprint $table) {
             $table->string('id', 100)->primary();
             $table->foreignUuid('user_id')
                 ->nullable()
                 ->constrained()
                 ->on('users')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('client_id');
-            $table->text('scopes')->nullable();
+            $table->foreignUuid('client_id')
+                ->nullable()
+                ->constrained()
+                ->on('oauth_clients')
+                ->onDelete('cascade');
+            $table->string('scopes', 300)->nullable();
             $table->boolean('revoked');
             $table->dateTime('expires_at')->nullable();
         });
@@ -36,18 +38,6 @@ return new class() extends Migration
      */
     public function down()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->dropIfExists('oauth_auth_codes');
-    }
-
-    /**
-     * Get the migration connection name.
-     *
-     * @return string|null
-     */
-    public function getConnection()
-    {
-        return config('passport.storage.database.connection');
+        Schema::dropIfExists('oauth_auth_codes');
     }
 };

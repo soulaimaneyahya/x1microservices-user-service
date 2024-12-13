@@ -23,23 +23,24 @@ return new class() extends Migration
      */
     public function up()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->create('oauth_clients', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('oauth_clients', function (Blueprint $table) {
+            $table->uuid('id')->primary()->index();
             $table->foreignUuid('user_id')
                 ->nullable()
                 ->constrained()
                 ->on('users')
                 ->onDelete('cascade');
-            $table->string('name');
+            $table->string('name', 255);
+            $table->string('description', 500)->nullable();
             $table->string('secret', 100)->nullable();
             $table->string('provider')->nullable();
-            $table->text('redirect');
+            $table->string('homepage_url', 255);
+            $table->string('callback_url', 255);
             $table->boolean('personal_access_client');
             $table->boolean('password_client');
             $table->boolean('revoked');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -50,8 +51,6 @@ return new class() extends Migration
      */
     public function down()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->dropIfExists('oauth_clients');
+        Schema::dropIfExists('oauth_clients');
     }
 };

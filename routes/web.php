@@ -8,7 +8,7 @@
 $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('/users/auth', [
         'as' => 'users.auth',
-        'uses' => 'UserController@auth'
+        'uses' => 'Users\UserController@auth'
     ]);
 });
 

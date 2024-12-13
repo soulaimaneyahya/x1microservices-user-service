@@ -28,9 +28,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         // LumenPassport::routes($this->app->router);
 
+        Passport::loadKeysFrom(storage_path('keys'));
+
         Passport::tokensExpireIn(\Carbon\Carbon::now()->addDays(7));
         Passport::refreshTokensExpireIn(\Carbon\Carbon::now()->addDays(30));
-        Passport::loadKeysFrom(storage_path('keys'));
+
         Passport::useClientModel(Client::class);
     }
 }

@@ -17,7 +17,9 @@ class OAuthClientController extends Controller
     {
         $rules = [
             'app_name' => 'required|string|max:255',
-            'redirect_url' => 'required|url|max:255',
+            'app_description' => 'nullable|string|max:500',
+            'homepage_url' => 'required|url|max:255',
+            'callback_url' => 'required|url|max:255',
         ];
 
         $this->validate($request, $rules);
@@ -25,13 +27,19 @@ class OAuthClientController extends Controller
         $validatedData = $request->only(array_keys($rules));
 
         $userId = $userId;
+
         $appName = $validatedData['app_name'];
-        $redirectUrl = $validatedData['redirect_url'];
+        $appDescription = $validatedData['app_description'];
+
+        $homepageUrl = $validatedData['homepage_url'];
+        $callbackUrl = $validatedData['callback_url'];
 
         return $this->successResponse($this->createClientService->createClient(
             $userId,
             $appName,
-            $redirectUrl
+            $homepageUrl,
+            $callbackUrl,
+            $appDescription,
         ));
     }
 }

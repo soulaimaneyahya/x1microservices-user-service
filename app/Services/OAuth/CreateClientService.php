@@ -4,7 +4,6 @@ namespace App\Services\OAuth;
 
 use App\Models\Client;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 
 class CreateClientService
 {
@@ -13,20 +12,30 @@ class CreateClientService
      *
      * @param string $userId
      * @param string $appName
-     * @param string $redirectUrl
+     * @param string $homepageUrl
+     * @param string $callbackUrl
+     * @param ?string $appDescription
      * @return array
      */
-    public function createClient(string $userId, string $appName, string $redirectUrl)
-    {
+    public function createClient(
+        string $userId,
+        string $appName,
+        string $homepageUrl,
+        string $callbackUrl,
+        ?string $appDescription = null,
+    ) {
         $plainSecret = Str::random(40);
 
         $client = Client::create([
             'user_id' => $userId,
             'name' => $appName,
+            'description' => $appDescription,
             'secret' => $plainSecret,
-            'redirect' => $redirectUrl,
-            'personal_access_client' => false,
-            'password_client' => false,
+            'provider' => 'users',
+            'homepage_url' => $homepageUrl,
+            'callback_url' => $callbackUrl,
+            'personal_access_client' => true,
+            'password_client' => true,
             'revoked' => false,
         ]);
 

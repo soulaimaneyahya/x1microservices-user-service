@@ -13,18 +13,20 @@ return new class() extends Migration
      */
     public function up()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->create('oauth_access_tokens', function (Blueprint $table) {
+        Schema::create('oauth_access_tokens', function (Blueprint $table) {
             $table->string('id', 100)->primary();
             $table->foreignUuid('user_id')
                 ->nullable()
                 ->constrained()
                 ->on('users')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('client_id');
+            $table->foreignUuid('client_id')
+                ->nullable()
+                ->constrained()
+                ->on('oauth_clients')
+                ->onDelete('cascade');
             $table->string('name')->nullable();
-            $table->text('scopes')->nullable();
+            $table->string('scopes', 300)->nullable();
             $table->boolean('revoked');
             $table->timestamps();
             $table->dateTime('expires_at')->nullable();
@@ -38,18 +40,6 @@ return new class() extends Migration
      */
     public function down()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->dropIfExists('oauth_access_tokens');
-    }
-
-    /**
-     * Get the migration connection name.
-     *
-     * @return string|null
-     */
-    public function getConnection()
-    {
-        return config('passport.storage.database.connection');
+        Schema::dropIfExists('oauth_access_tokens');
     }
 };

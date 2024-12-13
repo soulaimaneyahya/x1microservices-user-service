@@ -13,11 +13,13 @@ return new class() extends Migration
      */
     public function up()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->create('oauth_personal_access_clients', function (Blueprint $table) {
+        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('client_id');
+            $table->foreignUuid('client_id')
+                ->nullable()
+                ->constrained()
+                ->on('oauth_clients')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,18 +31,6 @@ return new class() extends Migration
      */
     public function down()
     {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->dropIfExists('oauth_personal_access_clients');
-    }
-
-    /**
-     * Get the migration connection name.
-     *
-     * @return string|null
-     */
-    public function getConnection()
-    {
-        return config('passport.storage.database.connection');
+        Schema::dropIfExists('oauth_personal_access_clients');
     }
 };
