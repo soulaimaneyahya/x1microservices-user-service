@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Books;
 
-use App\Traits\ConsumesExternalService;
+use App\Traits\RequestServices;
 
 class BookService
 {
-    use ConsumesExternalService;
+    use RequestServices;
 
     /**
      * The base uri to consume the books service

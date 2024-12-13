@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Authors;
 
-use App\Traits\ConsumesExternalService;
+use App\Traits\RequestServices;
 
 class AuthorService
 {
-    use ConsumesExternalService;
+    use RequestServices;
 
     /**
      * The base uri to consume the authors service
@@ -26,27 +26,27 @@ class AuthorService
         $this->secret = config('services.authors.secret');
     }
 
-    public function obtainAuthors(): string
+    public function obtainAuthors(): array
     {
         return $this->performRequest('GET', '/authors');
     }
 
-    public function createAuthor($data): string
+    public function createAuthor($data): array
     {
         return $this->performRequest('POST', '/authors', $data);
     }
 
-    public function obtainAuthor($authorId): string
+    public function obtainAuthor($authorId): array
     {
         return $this->performRequest('GET', "/authors/{$authorId}");
     }
 
-    public function editAuthor($data, $authorId): string
+    public function editAuthor($data, $authorId): array
     {
         return $this->performRequest('PUT', "/authors/{$authorId}", $data);
     }
 
-    public function deleteAuthor($authorId): string
+    public function deleteAuthor($authorId): array
     {
         return $this->performRequest('DELETE', "/authors/{$authorId}");
     }

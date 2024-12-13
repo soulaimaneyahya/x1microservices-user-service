@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Client;
 use Laravel\Passport\Passport;
 use Illuminate\Support\ServiceProvider;
 use Dusterio\LumenPassport\LumenPassport;
@@ -25,10 +26,11 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        LumenPassport::routes($this->app->router);
+        // LumenPassport::routes($this->app->router);
 
         Passport::tokensExpireIn(\Carbon\Carbon::now()->addDays(7));
         Passport::refreshTokensExpireIn(\Carbon\Carbon::now()->addDays(30));
         Passport::loadKeysFrom(storage_path('keys'));
+        Passport::useClientModel(Client::class);
     }
 }

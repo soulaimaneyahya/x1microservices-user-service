@@ -24,7 +24,7 @@ trait ApiResponser
         string|array|Model|Collection $data,
         int $code = Response::HTTP_OK
     ): JsonResponse {
-        return new JsonResponse(['data' => $data], $code);
+        return $this->jsonResponse(['data' => $data], $code);
     }
 
     /**
@@ -35,6 +35,19 @@ trait ApiResponser
      */
     public function errorResponse(string|array $message, int $code): JsonResponse
     {
-        return new JsonResponse(['error' => $message, 'code' => $code], $code);
+        return $this->jsonResponse(['error' => $message, 'code' => $code], $code);
+    }
+
+    /**
+     * Build jon response
+     * @param  string|array|Model|Collection $data
+     * @param  int $code
+     * @return JsonResponse
+     */
+    public function jsonResponse(
+        string|array|Model|Collection $data,
+        int $code = Response::HTTP_OK
+    ): JsonResponse {
+        return new JsonResponse($data, $code);
     }
 }

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Books;
 
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
-use App\Services\BookService;
 use Illuminate\Http\Response;
-use App\Services\AuthorService;
+use App\Services\Books\BookService;
+use App\Http\Controllers\Controller;
+use App\Services\Authors\AuthorService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookController extends Controller

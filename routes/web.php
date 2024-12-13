@@ -12,17 +12,18 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     ]);
 });
 
-$router->group([], function () use ($router) {
+$router->group(['middleware' => 'client.credentials'], function () use ($router) {
     /**
      * Users
      */
     $router->get('/users', [
         'as' => 'users.index',
-        'uses' => 'UserController@index'
+        'uses' => 'Users\UserController@index'
     ]);
+
     $router->get('/users/{userId}', [
         'as' => 'users.show',
-        'uses' => 'UserController@show'
+        'uses' => 'Users\UserController@show'
     ]);
 
     /**
@@ -30,11 +31,12 @@ $router->group([], function () use ($router) {
      */
     $router->get('/authors', [
         'as' => 'authors.index',
-        'uses' => 'AuthorController@index'
+        'uses' => 'Authors\AuthorController@index'
     ]);
+
     $router->get('/authors/{authorId}', [
         'as' => 'authors.show',
-        'uses' => 'AuthorController@show'
+        'uses' => 'Authors\AuthorController@show'
     ]);
 
     /**
@@ -42,13 +44,27 @@ $router->group([], function () use ($router) {
      */
     $router->get('/books', [
         'as' => 'books.index',
-        'uses' => 'BookController@index'
+        'uses' => 'Books\BookController@index'
     ]);
+
     $router->get('/books/{bookId}', [
         'as' => 'books.show',
-        'uses' => 'BookController@show'
+        'uses' => 'Books\BookController@show'
     ]);
 });
+
+/**
+ * Laravel passport
+ */
+$router->post('/oauth-client/{userId}', [
+    'as' => 'oauth-client',
+    'uses' => 'OAuth\OAuthClientController'
+]);
+
+$router->post('/oauth/token', [
+    'as' => 'oauth.token',
+    'uses' => '\Dusterio\LumenPassport\Http\Controllers\AccessTokenController@issueToken'
+]);
 
 $router->get('/', function () use ($router) {
     return $router->app->version();

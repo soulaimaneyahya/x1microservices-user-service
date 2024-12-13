@@ -9,14 +9,18 @@ namespace App\Traits;
 
 use GuzzleHttp\Client;
 
-trait ConsumesExternalService
+trait RequestServices
 {
     /**
      * Send a request to any service
-     * @return string
+     * @return array
      */
-    public function performRequest($method, $requestUrl, $formParams = [], $headers = []): string
-    {
+    public function performRequest(
+        string $method,
+        string $requestUrl,
+        array $formParams = [],
+        array $headers = []
+    ): array {
         $client = new Client([
             'base_uri' => $this->baseUri,
         ]);
@@ -34,6 +38,6 @@ trait ConsumesExternalService
             ]
         );
 
-        return $response->getBody()->getContents();
+        return json_decode($response->getBody()->getContents(), true);
     }
 }

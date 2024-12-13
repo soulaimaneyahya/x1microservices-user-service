@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Authors;
 
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Services\AuthorService;
+use App\Http\Controllers\Controller;
+use App\Services\Authors\AuthorService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AuthorController extends Controller
@@ -30,26 +31,26 @@ class AuthorController extends Controller
 
     public function index(): JsonResponse
     {
-        return $this->successResponse($this->authorService->obtainAuthors());
+        return $this->jsonResponse($this->authorService->obtainAuthors());
     }
 
     public function store(Request $request): JsonResponse
     {
-        return $this->successResponse($this->authorService->createAuthor($request->all(), Response::HTTP_CREATED));
+        return $this->jsonResponse($this->authorService->createAuthor($request->all(), Response::HTTP_CREATED));
     }
 
     public function show($authorId): JsonResponse
     {
-        return $this->successResponse($this->authorService->obtainAuthor($authorId));
+        return $this->jsonResponse($this->authorService->obtainAuthor($authorId));
     }
 
     public function update(Request $request, $authorId): JsonResponse
     {
-        return $this->successResponse($this->authorService->editAuthor($request->all(), $authorId));
+        return $this->jsonResponse($this->authorService->editAuthor($request->all(), $authorId));
     }
 
     public function destroy($authorId): JsonResponse
     {
-        return $this->successResponse($this->authorService->deleteAuthor($authorId));
+        return $this->jsonResponse($this->authorService->deleteAuthor($authorId));
     }
 }
