@@ -14,3 +14,8 @@ Running
 ```sh
 php -S localhost:8000 -t public
 ```
+
+
+```sh
+php artisan db:seed --class=TruncateOAuthTablesSeeder
+```
