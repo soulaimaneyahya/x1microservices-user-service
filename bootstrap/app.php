@@ -79,7 +79,15 @@ $app->configure('services');
 */
 
 $app->routeMiddleware([
+    /**
+     * Laravel passport
+     * auth:api
+     */
     'auth' => App\Http\Middleware\Authenticate::class,
+    /**
+     * Lumen passport
+     * client.credentials
+     */
     'client.credentials' => App\Http\Middleware\CheckClientCredentials::class,
 ]);
 

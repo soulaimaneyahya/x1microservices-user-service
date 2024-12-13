@@ -14,6 +14,10 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
+    /**
+     * Laravel passport
+     * auth:api
+     */
     use HasApiTokens;
     use HasFactory;
     use Authenticatable;

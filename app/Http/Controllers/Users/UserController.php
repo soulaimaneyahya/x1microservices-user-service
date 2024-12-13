@@ -11,11 +11,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class UserController extends Controller
 {
-    /**
-     * List users
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function index(): JsonResponse
     {
         $users = User::all();
@@ -23,11 +18,7 @@ class UserController extends Controller
         return $this->successResponse($users);
     }
 
-    /**
-     * Create one new user
-     * @return Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $rules = [
             'name' => 'required|max:255',
@@ -45,11 +36,6 @@ class UserController extends Controller
         return $this->successResponse($user, Response::HTTP_CREATED);
     }
 
-    /**
-     * Show user
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function show(string $userId): JsonResponse
     {
         $user = User::findOrFail($userId);
@@ -57,11 +43,7 @@ class UserController extends Controller
         return $this->successResponse($user);
     }
 
-    /**
-     * Update an existing user
-     * @return Illuminate\Http\Response
-     */
-    public function update(Request $request, $user)
+    public function update(Request $request, $user): JsonResponse
     {
         $rules = [
             'name' => 'max:255',
@@ -91,11 +73,6 @@ class UserController extends Controller
         return $this->successResponse($user);
     }
 
-    /**
-     * Get auth user
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function auth(Request $request): JsonResponse
     {
         return $this->successResponse($request->user());

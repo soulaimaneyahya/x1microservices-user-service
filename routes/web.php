@@ -4,6 +4,7 @@
 
 /**
  * Routes protected by user credentials
+ * Laravel passport
  */
 $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('/users/auth', [
@@ -12,6 +13,10 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     ]);
 });
 
+/**
+ * Lumen passport
+ * client.credentials
+ */
 $router->group(['middleware' => 'client.credentials'], function () use ($router) {
     /**
      * Users
@@ -54,7 +59,8 @@ $router->group(['middleware' => 'client.credentials'], function () use ($router)
 });
 
 /**
- * Laravel passport
+ * Lumen passport
+ * OAuth
  */
 $router->post('/oauth-client/{userId}', [
     'as' => 'oauth-client',
