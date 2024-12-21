@@ -26,8 +26,6 @@ class OAuthClientController extends Controller
 
         $validatedData = $request->only(array_keys($rules));
 
-        $userId = $userId;
-
         $appName = $validatedData['app_name'];
         $appDescription = $validatedData['app_description'];
 
