@@ -3,6 +3,20 @@
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /**
+ * Lumen passport
+ * OAuth
+ */
+$router->post('/oauth-client/{userId}', [
+    'as' => 'oauth-client',
+    'uses' => 'OAuth\OAuthClientController'
+]);
+
+$router->post('/oauth/token', [
+    'as' => 'oauth.token',
+    'uses' => '\Dusterio\LumenPassport\Http\Controllers\AccessTokenController@issueToken'
+]);
+
+/**
  * Routes protected by user credentials
  * Laravel passport
  */
@@ -92,20 +106,6 @@ $router->group(['middleware' => 'client.credentials'], function () use ($router)
         'uses' => 'Books\BookController@destroy'
     ]);
 });
-
-/**
- * Lumen passport
- * OAuth
- */
-$router->post('/oauth-client/{userId}', [
-    'as' => 'oauth-client',
-    'uses' => 'OAuth\OAuthClientController'
-]);
-
-$router->post('/oauth/token', [
-    'as' => 'oauth.token',
-    'uses' => '\Dusterio\LumenPassport\Http\Controllers\AccessTokenController@issueToken'
-]);
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
