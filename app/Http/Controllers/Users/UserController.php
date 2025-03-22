@@ -72,9 +72,4 @@ class UserController extends Controller
 
         return $this->successResponse($user);
     }
-
-    public function auth(Request $request): JsonResponse
-    {
-        return $this->successResponse($request->user());
-    }
 }
