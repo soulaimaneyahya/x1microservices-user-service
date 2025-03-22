@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Models\Client;
 use Laravel\Passport\Passport;
 use Illuminate\Support\ServiceProvider;
-use Dusterio\LumenPassport\LumenPassport;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -34,5 +33,30 @@ class AuthServiceProvider extends ServiceProvider
         Passport::refreshTokensExpireIn(\Carbon\Carbon::now()->addDays(30));
 
         Passport::useClientModel(Client::class);
+
+        /**
+         * Define the scopes for the API
+         */
+        Passport::tokensCan([
+            'books:read' => 'Read books',
+            'books:create' => 'Create new books',
+            'books:update' => 'Update existing books',
+            'books:delete' => 'Delete books',
+        
+            'authors:read' => 'Read authors',
+            'authors:create' => 'Create new authors',
+            'authors:update' => 'Update existing authors',
+            'authors:delete' => 'Delete authors',
+        
+            'users:read' => 'Read users',
+        ]);
+
+        /**
+         * Set the default scopes for the API
+         */
+        Passport::setDefaultScope([
+            'books:read',
+            'authors:read',
+        ]);
     }
 }

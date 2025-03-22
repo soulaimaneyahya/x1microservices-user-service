@@ -16,14 +16,19 @@ $router->post('/oauth/token', [
     'uses' => '\Dusterio\LumenPassport\Http\Controllers\AccessTokenController@issueToken'
 ]);
 
+$router->post('/logout', [
+    'as' => 'auth.logout',
+    'uses' => 'OAuth\LogoutController'
+]);
+
 /**
  * Routes protected by user credentials
  * Laravel passport
  */
 $router->group(['middleware' => 'auth:api'], function () use ($router) {
-    $router->get('/users/auth', [
+    $router->get('/me', [
         'as' => 'users.auth',
-        'uses' => 'Users\UserController@auth'
+        'uses' => 'OAuth\GetAuthUserController'
     ]);
 });
 
