@@ -20,27 +20,28 @@ class LogoutController extends Controller
             throw new UnauthorizedException('Invalid token', 401);
         }
 
+        DB::beginTransaction();
+
         try {
-            DB::transaction(function () use ($token) {
-                Token::where('id', $token->id)->update([
-                    'revoked' => true,
-                    'expires_at' => \Carbon\Carbon::now(),
-                    'deleted_at' => \Carbon\Carbon::now(),
-                ]);
-    
-                RefreshToken::where('access_token_id', $token->id)->update([
-                    'revoked' => true,
-                    'expires_at' => \Carbon\Carbon::now(),
-                    'deleted_at' => \Carbon\Carbon::now(),
-                ]);
-            });
+            Token::where('id', $token->id)->update([
+                'revoked' => true,
+                'expires_at' => \Carbon\Carbon::now(),
+                'deleted_at' => \Carbon\Carbon::now(),
+            ]);
+
+            RefreshToken::where('access_token_id', $token->id)->update([
+                'revoked' => true,
+                'expires_at' => \Carbon\Carbon::now(),
+                'deleted_at' => \Carbon\Carbon::now(),
+            ]);
+
+            DB::commit();
 
             return response()->json(['message' => 'Logged out successfully.']);
-
-        } catch (UnauthorizedException $ex) {
+        } catch (\Exception $ex) {
             DB::rollBack();
 
-            return response()->json(['error' => $ex->getMessage()], $ex->getCode());
+            return response()->json(['error' => $ex->getMessage()], 500);
         }
     }
 }
