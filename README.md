@@ -26,11 +26,6 @@ Run Service
 php -S localhost:8000 -t public
 ```
 
-PassportServiceProvider
-```php
-Passport::ignoreMigrations();
-```
-
 Generate PHP-Lumen Encryption keys
 ```sh
 php artisan passport:keys

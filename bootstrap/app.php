@@ -107,7 +107,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 
 // Register two service providers, Laravel Passport and Lumen adapter
-$app->register(Laravel\Passport\PassportServiceProvider::class);
+$app->register(App\Providers\XPassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 
 /*
